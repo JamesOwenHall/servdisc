@@ -37,15 +37,6 @@ impl Party {
         self.create(&self.node_path(), CreateMode::Ephemeral)
     }
 
-    pub fn hosts(&mut self) -> ZkResult<Vec<String>> {
-        let children = self.zk.get_children(&self.nodes_path(), false)?;
-        if children != self.nodes {
-            self.nodes = children;
-        }
-
-        Ok(self.nodes.clone())
-    }
-
     pub fn new_hosts(&mut self) -> ZkResult<Vec<String>> {
         loop {
             let (sender, receiver) = mpsc::channel();
