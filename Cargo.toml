@@ -1,0 +1,7 @@
+[package]
+name = "servdisc"
+version = "0.1.0"
+authors = ["James Hall <james_hall@live.ca>"]
+
+[dependencies]
+zookeeper = "0.2"
